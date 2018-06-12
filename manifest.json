@@ -1,0 +1,11 @@
+{
+	"manifest_version": 2,
+	"name": "Reddit Comments",
+	"version": "0.1",
+	"content_scripts": [
+		{
+			"matches": ["https://*.reddit.com/r/*/comments/*"],
+			"js": ["comments.js"]
+		}
+	]
+}
