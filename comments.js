@@ -1,12 +1,13 @@
 var commentVisits = localStorage.commentVisits;
+const id = document.baseURI.split("/")[6];
+var dates = [];
 if (!commentVisits) {
     localStorage.setItem("commentVisits", "{}");
     timestamps = {};
 } else {
     timestamps = JSON.parse(commentVisits);
+    dates = timestamps[id];
 }
-const id = document.baseURI.split("/")[6];
-const dates = timestamps[id];
 const colour = "darkorange";
 
 function addTimeStamp() {
@@ -19,6 +20,7 @@ function addTimeStamp() {
         }
     } else {
         timestamps[id] = [Date.now()];
+        dates = timestamps[id];
         console.log("timestamp created");
     }
     var jsonString = JSON.stringify(timestamps)
